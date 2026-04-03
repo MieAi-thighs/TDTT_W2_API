@@ -125,7 +125,7 @@ print(response.json())
 
 ## 7. Demo
 
-**Link Video**: [Dán link YouTube hoặc Google Drive của bạn tại đây]
+**Link Video**: [![Xem Video Demo](https://img.youtube.com/vi/vfMa6JN-F7s/0.jpg)](https://www.youtube.com/watch?v=vfMa6JN-F7s)
 
 ## 8. Kết quả thực nghiệm
 
