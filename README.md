@@ -45,25 +45,37 @@ pip install -r requirements.txt
 
 ## 5. Hướng dẫn chạy chương trình
 
-Dự án được cấu trúc theo dạng Notebook để dễ dàng theo dõi từng bước thực thi. Vui lòng chạy các Cell theo thứ tự sau:
+### A. Chạy trên Google Colab
 
 - **Cell 1 - Cài đặt môi trường**: Cài đặt các thư viện lõi
   > **Lưu ý**: Nếu Colab yêu cầu "Restart Session", hãy xác nhận và chạy cell 2.
-- **Cell 2 - Khởi tạo Server & Model**:
+- **Cell 2 - Khởi tạo Script Code & Model: Sử dụng lệnh `%%writefile main.py` để xuất mã nguồn ra file script riêng biệt**:
   - Tải mô hình AI `Intel/dpt-large` từ Hugging Face.
 
   - Thiết lập các Endpoint cho FastAPI.
 
-  - Cell này sẽ chạy ngầm một Thread để giữ Server luôn hoạt động ở cổng `8000`.
+  > **Lưu ý**: Cell này sẽ chạy ngầm một Thread để giữ Server luôn hoạt động ở cổng `8000`.
 
 - **Cell 3 - Tạo Public URL (Pinggy Tunnel)**:
   - Sử dụng SSH để chuyển tiếp cổng từ máy ảo ra Internet.
 
   - Sau khi chạy, link truy cập có dạng `https://xxxx.a.free.pinggy.link` sẽ hiển thị ở terminal.
+  
+### B. Chạy trên Local
 
-  - Quan trọng: Phải giữ Cell này luôn chạy để duy trì kết nối.
+Sau khi đã có file `main.py` và tải các thư viện cần thiết như đã hướng dẫn, ta thực hiện:
 
-> **Lưu ý**: Đảm bảo mô hình đã được tải xuống hoàn tất và server hiển thị thông báo `Uvicorn running on http://127.0.0.1:8000` trước khi thực hiện gọi API.
+```Bash
+uvicorn main:app --reload
+```
+*Server sẽ chạy tại: http://127.0.0.1:8000*
+
+### C. Kiểm thử kết quả
+
+Sau khi Server (ở Colab hoặc Local) đã sẵn sàng:
+1. Mở file `test_api.py` trên máy bạn.
+2. Thay đổi biến `BASE_URL` thành link bạn nhận được từ Pinggy (nếu dùng Colab) hoặc `http://127.0.0.1:8000` (nếu chạy local).
+3. Chạy lệnh: `python test_api.py` để gửi ảnh và nhận file Heatmap về thư mục máy mình.
 
 ## 6. Hướng dẫn gọi API và ví dụ về Request/Response
 
