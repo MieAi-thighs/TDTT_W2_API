@@ -123,9 +123,9 @@ print(response.json())
 }
 ```
 
-## 7. Demo
+## 7.Video Demo
 
-**Link Video**: [Dán link YouTube hoặc Google Drive của bạn tại đây]
+**Link Video**: [![Xem Video Demo](https://img.youtube.com/vi/x-jAM1qeUmU/0.jpg)](https://www.youtube.com/watch?v=x-jAM1qeUmU)
 
 ## 8. Kết quả thực nghiệm
 
